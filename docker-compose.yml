@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+    queue:
+        image: rabbitmq:3-management
+        hostname: "rabbit1"
+        environment:
+            RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+            RABBITMQ_DEFAULT_USER: "user"
+            RABBITMQ_DEFAULT_PASS: "user"
+        ports:
+            - 5672:5672
+            - 15672:15672
+        volumes:
+            - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
